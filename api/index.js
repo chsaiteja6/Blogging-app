@@ -20,7 +20,10 @@ const storage = multer.diskStorage({
   app.use('/uploads', express.static(__dirname+'/uploads'));
   // Initialize multer middleware
 const upload = multer({ storage: storage });
-app.use(cors({credentials:true,origin:'http://localhost:3000'}));
+app.use(cors({
+  origin: 'http://localhost:3000', // Adjust to your frontend's URL
+  credentials: true // Allow cookies to be sent with requests
+}));
 app.use(express.json());
 app.use(cookieparser());
 
